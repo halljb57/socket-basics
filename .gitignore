@@ -1,5 +1,5 @@
 node_modules/
 data/.sqlite
-.ideal/*
+.idea/*
 *.sqlite
 *.log
