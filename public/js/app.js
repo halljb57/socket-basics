@@ -7,9 +7,17 @@ var socket = io();
 
 console.log(name + ' wants to join' + room);
 
+// Update h1 tag
+jQuery('.room-title').text(room);
+
 socket.on('connect', function()
 {
     console.log('Connect to socket.io server!');
+    socket.emit('joinRoom',
+        {
+            name: name,
+            room: room
+        });
 });
 
 // This get fired every time a new message come in.
