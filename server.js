@@ -19,8 +19,8 @@ io.on('connection', function(socket)
         console.log('Message received: ' + message.text);
         // Broadcast to all but sender.
         // socket.broadcast.emit('message', message);
-        // Broadcast to all browsers.
-        /* message from the sender */
+        /* Broadcast to all browsers.
+        message from the sender */
         message.timeStamp = moment().valueOf();
         io.emit('message', message);
     });
@@ -28,6 +28,7 @@ io.on('connection', function(socket)
     // timestamp property - javascript timestamp (miliseconds)
     /* General message */
     socket.emit('message', {
+        name: 'System',
         text: 'Welcome to the chat application!',
         timeStamp: moment().valueOf()
     });
