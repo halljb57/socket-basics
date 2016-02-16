@@ -16,8 +16,10 @@ io.on('connection', function(socket)
     socket.on('message', function(message)
     {
         console.log('Message received: ' + message.text);
-
-        socket.broadcast.emit('message', message);
+        // Broadcast to all but sender.
+        // socket.broadcast.emit('message', message);
+        // Broadcast to all browsers.
+        io.emit('message', message);
     });
 
     socket.emit('message', {
