@@ -11,11 +11,14 @@ socket.on('connect', function()
 // This get fired every time a new message come in.
 socket.on('message', function(message)
 {
+    var momentTimestamp = moment.utc(message.timeStamp); // Set timestamp
+
+    // var momentTimeStamp
     console.log('New message');
     console.log(message.text);
 
     // Call any class with name of <messages>
-    jQuery('.messages').append('<p>' + message.text +'</p>');
+    jQuery('.messages').append('<p><strong>' + momentTimestamp.local().format('h:mma: ') + '</strong>' + message.text +'</p>');
 });
 
 // Handles submitting of new message
