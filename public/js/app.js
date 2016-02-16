@@ -7,13 +7,13 @@ var socket = io();
 
 console.log(name + ' wants to join' + room);
 
-socket.on('connect', function()
+socket.on('connect', function ()
 {
     console.log('Connect to socket.io server!');
 });
 
 // This get fired every time a new message come in.
-socket.on('message', function(message)
+socket.on('message', function (message)
 {
     var momentTimestamp = moment.utc(message.timeStamp); // Set timestamp
     var $message = jQuery('.messages');
@@ -31,7 +31,7 @@ socket.on('message', function(message)
 // and get what is in form with ID <message-form>
 var $form = jQuery('#message-form');
 
-$form.on('submit', function(event)
+$form.on('submit', function (event)
 {
     event.preventDefault();
 
